@@ -24,7 +24,13 @@
 #include "usart.h"
 #include "adc.h"
 
-//UART USB A2->Tx A3->Rx pins
+/*
+ * UART USB
+ * PA2->Tx
+ * PA3->Rx
+ *
+ * PA0->LM35
+ */
 
 int main(){
 	GPIO_Handle_t txPin={GPIOA,{GPIO_PIN_NO_2,GPIO_MODE_ALTERNATE,GPIO_SPEED_MEDIUM,GPIO_OTYPE_PP,GPIO_NO_PUPD,GPIO_AF7}};

@@ -1,15 +1,13 @@
 /*
  * usart.c
  *
- *  Created on: 11 Şub 2023
- *      Author: metab
+ *      Author: Baris Cakir
  */
 
 
 #include "usart.h"
 
 
-//buraya enable disable diyip açıp kapatan bi fonksiyon olabilir bu
 static void usart_perip_clock_en(USART_RegDef_t * pUsartx){
 	if(pUsartx==USART1)
 		USART1_CLOCK_ENABLE();
@@ -35,10 +33,10 @@ uint8_t usart_get_flag_state(USART_RegDef_t* pUsartx,uint8_t state_flag){
 
 void usart_init(USART_Handle_t * pUsart_handle){
 
-	//usart clock aktif et
+	//usart clock enable
 	usart_perip_clock_en(pUsart_handle->pUsartX);
 
-	//mode
+	//mode set
 	if(pUsart_handle->usart_Config.mode == USART_MODE_ONLY_TX){
 		pUsart_handle->pUsartX->CR1 |= (1u<<3);
 
@@ -97,7 +95,7 @@ void usart_init(USART_Handle_t * pUsart_handle){
 	//baudrate
 	pUsart_handle->pUsartX->BBR = 0x683; //9600 baudrate
 
-	pUsart_handle->pUsartX->CR1 |= (1u<<13);//usart ue biti aktif etme- usart aktif etme
+	pUsart_handle->pUsartX->CR1 |= (1u<<13);//usart ue bit enable
 }
 
 

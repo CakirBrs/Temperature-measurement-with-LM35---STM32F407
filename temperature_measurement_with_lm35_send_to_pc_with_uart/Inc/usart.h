@@ -1,10 +1,8 @@
 /*
  * usart.h
  *
- *  Created on: 11 Şub 2023
- *      Author: metab
+ *      Author: Baris Cakir
  */
-
 #ifndef USART_H_
 #define USART_H_
 
@@ -26,8 +24,7 @@ enum{
 	USART_CR1_PCE,
 	USART_CR1_WAKE,
 	USART_CR1_M,
-	USART_CR1_UE,//bu arada reserve data var ondan kullanmıycam
-	USART_CR1_OVER8,
+	USART_CR1_UE,
 
 };
 
@@ -71,7 +68,7 @@ typedef struct{
 typedef struct{
 	USART_RegDef_t * pUsartX;
 	USART_Config_t usart_Config;
-}USART_Handle_t; //bu bir portu ifade ediyor
+}USART_Handle_t;
 
 
 
